@@ -17,7 +17,7 @@ const Cart = ({ cart, handleRemoveCart }) => {
             {cart.map((product, idx) => (
               <div key={idx} className="flex items-center gap-4">
                 <div className="flex-1">
-                  <h3 className="font-semibold">{product.title}</h3>
+                  <h3 className="font-semibold">{idx+1}. {product.title}</h3>
                   <span>${product.price}</span>
                 </div>
                 <div className="flex flex-col items-end">
