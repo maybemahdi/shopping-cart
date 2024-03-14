@@ -1,13 +1,23 @@
 import { useState } from "react";
 import Cart from "./components/Cart";
 import Products from "./components/Products";
+import React from "react";
+import { Icons, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [cart, setCart] = useState([]);
   const handleCart = (product) => {
-    setCart([...cart, product]);
+    const isExist = cart.find((pd) => pd === product);
+    if (!isExist) {
+      toast.success("Product Added to Cart");
+      setCart([...cart, product]);
+    } else {
+      toast.error("Product Already Exist in Cart");
+    }
   };
   const handleRemoveCart = (id) => {
+    toast.warn("Product Removed from Cart");
     const remainingCart = cart.filter((product) => product.id !== id);
     setCart(remainingCart);
   };

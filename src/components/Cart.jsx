@@ -22,7 +22,10 @@ const Cart = ({ cart, handleRemoveCart }) => {
                 </div>
                 <div className="flex flex-col items-end">
                   <div className="grid items-center gap-1"></div>
-                  <button onClick={()=> handleRemoveCart(product.id)} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                  <button
+                    onClick={() => handleRemoveCart(product.id)}
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -69,12 +72,15 @@ const Cart = ({ cart, handleRemoveCart }) => {
           </div>
         </div>
         <div className="flex flex-col items-center space-y-4 p-6">
-          <div className="flex items-center justify-start font-semibold">
-            <span>Total</span>
-            <span>$79.98</span>
+          <div className="flex justify-center items-center mb-1 font-semibold">
+            <span className="mr-2">Total:</span>
+            <span>${cart.reduce((acc, value) => acc + value.price, 0)}</span>
           </div>
-          <button className="flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#111] text-white hover:bg-[#2b2a2a] h-10 px-4 py-2 w-full">
-            Checkout
+          <button
+            disabled
+            className="flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#111] text-white hover:bg-[#2b2a2a] h-10 px-4 py-2 w-full"
+          >
+            Purchase
           </button>
         </div>
       </div>
